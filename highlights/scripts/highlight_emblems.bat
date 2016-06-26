@@ -11,7 +11,7 @@ magick convert %1 -quiet -alpha copy ^
        "%2\temp\%~n1_fill.png"
 
 ::highlights
-magick convert %1 -quiet -morphology HMT ^
+magick convert %1 -morphology HMT ^
        "5:0,-,-,-,- -,-,-,-,- -,-,-,-,- -,-,-,-,- 1,-,-,-,-; 3:0,-,1 -,-,- -,-,-" ^
        -alpha copy ^
        %2\temp\gradient_highlight.png -compose atop -composite ^
@@ -23,13 +23,20 @@ magick convert "%2\temp\%~n1_fill.png" ^
        -background white ^
        "%2\temp\%~n1_highlight.png"
 
+:: borders
+magick convert ( %1 -morphology EdgeOut Octagon:3 -alpha copy )^
+       ( -size 512x512 canvas:black ) -compose atop -composite ^
+       "%2\temp\%~n1_border.png"
+
 :: default emblems
-magick convert "%2\temp\%~n1_highlight.png" -resize 128x128 ^
+magick convert "%2\temp\%~n1_highlight.png" ^
+       -colorspace RGB -resize 128x128 -colorspace sRGB ^
        "%2\%~nx1"
 
 :: small emblems
 magick convert "%2\temp\%~n1_highlight.png" ^
        -fill black -colorize 100%% -channel RGBA -blur 32x32 -level 0,97%% ^
-       "%2\temp\%~n1_highlight.png" -composite ^
-       -resize 24x24 ^
+       "%2\temp\%~n1_highlight.png" -compose Over -composite ^
+       "%2\temp\%~n1_border.png" -compose Dst_Over -composite ^
+       -colorspace RGB -resize 24x24 -colorspace sRGB ^
        "%2\small\%~nx1"

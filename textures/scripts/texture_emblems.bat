@@ -24,6 +24,11 @@ magick convert "%2\temp\%~n1_fill.png" ^
        -background white ^
        "%2\temp\%~n1.png"
 
+:: borders
+magick convert ( %1 -morphology EdgeOut Octagon:3 -alpha copy )^
+       ( -size 512x512 canvas:black ) -compose atop -composite ^
+       "%2\temp\%~n1_border.png"
+
 :: default emblems
 magick convert "%2\temp\%~n1.png" ^
        -colorspace RGB -resize 128x128 -colorspace sRGB ^
@@ -33,8 +38,10 @@ magick convert "%2\temp\%~n1.png" ^
 :: small emblems
 magick convert "%2\temp\%~n1.png" ^
        -fill black -colorize 100%% -channel RGBA -blur 32x32 -level 0,97%% ^
-       "%2\temp\%~n1.png" -composite ^
+       "%2\temp\%~n1.png" -compose Over -composite ^
+       "%2\temp\%~n1_border.png" -compose Dst_Over -composite ^
        -colorspace RGB -resize 24x24 -colorspace sRGB ^
+       -define dds:compression=none ^
        "%2\dds\small\%~n1.dds"
 
 ::map emblems
@@ -45,4 +52,5 @@ magick convert "%1" -alpha copy ^
 
 del "%2\temp\%~n1_fill.png"
 del "%2\temp\%~n1_highlights.png"
+del "%2\temp\%~n1_border.png"
 del "%2\temp\%~n1.png"
