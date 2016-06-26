@@ -1,4 +1,3 @@
-
 @echo off
 :: %1 is the input prefix directory
 :: %2 is the output prefix directory

@@ -13,7 +13,7 @@ magick convert %1 -quiet -alpha copy ^
 
 ::highlights
 magick convert %1 -quiet -morphology HMT ^
-       "5:0,-,-,-,- -,-,-,-,- -,-,-,-,- -,-,-,-,- 1,-,-,-,-; 3:0,-,1 -,-,- -,-,-" ^
+       "6x6+0+5:0,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- 1,-,-,-,-,-; 3x3+2+0:0,-,1 -,-,- -,-,-" ^
        -alpha copy ^
        %2\temp\gradient_highlight.png -compose atop -composite ^
        "%2\temp\%~n1_highlights.png"
