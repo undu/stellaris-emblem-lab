@@ -7,6 +7,6 @@ for %%a in (img\*.png) do (
   call bevels\scripts\bevel_emblems.bat %%a bevels
 )
 
-call common_scripts\montage.bat bevels bevels\montage
+call common_scripts\montage.bat bevels bevels\montage 5x
 
 pause

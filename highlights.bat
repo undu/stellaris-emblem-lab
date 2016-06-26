@@ -9,6 +9,6 @@ for %%a in (img\*.png) do (
   call highlights\scripts\highlight_emblems.bat %%a highlights
 )
 
-call common_scripts\montage.bat highlights highlights\montage
+call common_scripts\montage.bat highlights highlights\montage 5x
 
 pause

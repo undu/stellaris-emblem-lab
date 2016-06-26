@@ -9,6 +9,6 @@ for %%a in (img\*.png) do (
   call gradients\scripts\fill_emblems.bat %%a gradients
 )
 
-call common_scripts\montage.bat gradients gradients\montage
+call common_scripts\montage.bat gradients gradients\montage 5x
 
 pause

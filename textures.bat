@@ -9,7 +9,7 @@ for %%a in (img\*.png) do (
   call textures\scripts\texture_emblems.bat %%a textures
 )
 
-call common_scripts\montage.bat textures\dds textures\workshop
+call common_scripts\montage.bat textures\dds textures\workshop 5x
 
 del textures\temp\gradient_fill.png
 del textures\temp\gradient_highlight.png
