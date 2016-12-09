@@ -1,0 +1,2 @@
+cwlVersion: v1.0
+outlines: [{ 'class': 'File', 'path': '../../img/batman_classic.png' }]
