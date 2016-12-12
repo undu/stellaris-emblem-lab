@@ -7,7 +7,7 @@
 magick convert "${1}" \
        -fill black -colorize 100%% -channel RGBA -blur 32x32 -level 0,97%% \
        "${1}" -compose Over -composite \
-       "${3}" -compose Dst_Over -composite \
+       "${2}" -compose Dst_Over -composite \
        -colorspace RGB -resize 24x24 -colorspace sRGB \
        -define dds:compression=none \
        "${3}.dds"

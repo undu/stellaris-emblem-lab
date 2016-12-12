@@ -1,6 +1,11 @@
-cwlVersion: 1.0
+cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [sh, gradients_gen.sh]
+baseCommand: sh
+inputs:
+  command:
+    type: File
+    inputBinding:
+      position: 1
 outputs:
   fill_gradient:
     type: File

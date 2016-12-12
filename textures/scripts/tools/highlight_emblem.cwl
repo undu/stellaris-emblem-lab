@@ -1,15 +1,19 @@
-cwlVersion: 1.0
+cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [sh, highlight_emblem.sh]
+baseCommand: sh
 inputs:
-  gradient_emblem:
+  command:
     type: File
     inputBinding:
       position: 1
-  gradient_mask:
+  gradient_emblem:
     type: File
     inputBinding:
       position: 2
+  gradient_mask:
+    type: File
+    inputBinding:
+      position: 3
 outputs:
   gradient_emblem:
     type: File

@@ -1,15 +1,19 @@
-cwlVersion: 1.0
+cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [sh, gradient_emblem.sh]
+baseCommand: sh
 inputs:
-  outline:
+  command:
     type: File
     inputBinding:
       position: 1
-  fill_gradient:
+  outline:
     type: File
     inputBinding:
       position: 2
+  fill_gradient:
+    type: File
+    inputBinding:
+      position: 3
 outputs:
   gradient_emblem:
     type: File

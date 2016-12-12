@@ -1,13 +1,17 @@
-cwlVersion: 1.0
+cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [sh, border_emblem.sh]
+baseCommand: sh
 inputs:
-  outline:
+  command:
     type: File
     inputBinding:
       position: 1
+  outline:
+    type: File
+    inputBinding:
+      position: 2
 outputs:
-  order_emblem:
+  border_emblem:
     type: File
     outputBinding:
       glob: border_emblem.png
