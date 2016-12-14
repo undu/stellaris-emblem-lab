@@ -13,12 +13,20 @@ inputs:
   highlight_mask: File
   highlight_emblem: File
   border_emblem: File
+  texture_map: File
+  texture_default: File
   texture_small: File
 
 outputs:
   texture_small:
     type: File
     outputSource: small/texture
+  texture_default:
+    type: File
+    outputSource: default/texture
+  texture_map:
+    type: File
+    outputSource: map/texture
 
 steps:
   gradient:
@@ -51,6 +59,27 @@ steps:
       command: border_emblem
       outline: outline
     out: [border_emblem]
+
+  map:
+    run: tools/texture_map.cwl
+    in:
+      command: texture_map
+      # needed to transform to generate file_name
+      outline: outline
+      file_name:
+        valueFrom: $(inputs.outline.nameroot)
+    out: [texture]
+
+  default:
+    run: tools/texture_default.cwl
+    in:
+      command: texture_default
+      # needed to transform to generate file_name
+      outline: outline
+      highlight: highlight/gradient_emblem
+      file_name:
+        valueFrom: $(inputs.outline.nameroot)
+    out: [texture]
 
   small:
     run: tools/texture_small.cwl

@@ -13,8 +13,16 @@ inputs:
   highlight_mask: File
   highlight_emblem: File
   border_emblem: File
+  texture_map: File
+  texture_default: File
   texture_small: File
 outputs:
+  texture_map:
+    type: File[]
+    outputSource: textures/texture_map
+  texture_default:
+    type: File[]
+    outputSource: textures/texture_map
   texture_small:
     type: File[]
     outputSource: textures/texture_small
@@ -40,6 +48,8 @@ steps:
       highlight_mask: highlight_mask
       highlight_emblem: highlight_emblem
       border_emblem: border_emblem
+      texture_map: texture_map
+      texture_default: texture_default
       texture_small: texture_small
-    out: [texture_small]
+    out: [texture_default, texture_map, texture_small]
 
