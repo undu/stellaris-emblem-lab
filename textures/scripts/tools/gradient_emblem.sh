@@ -3,6 +3,6 @@
 # $2 is the gradient
 
 #gradient fill
-magick convert "${1}" -quiet -alpha copy \
-       "${2}" -compose atop -composite \
-       "gradient_emblem.png"
+convert "${1}" -quiet -alpha copy \
+        "${2}" -compose atop -composite \
+        "gradient_emblem.png"
