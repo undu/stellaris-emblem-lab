@@ -29,14 +29,12 @@ outputs:
 
 steps:
   gradients:
-    id: gradients
     run: tools/gradients_gen.cwl
     in:
       command: gradients_gen
     out: [fill_gradient, highlight_gradient]
 
   textures:
-    id: textures
     run: texture_emblem.cwl
     scatter: outline
     in:
