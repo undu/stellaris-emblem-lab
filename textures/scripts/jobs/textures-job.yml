@@ -2,8 +2,6 @@ cwlVersion: v1.0
 outlines:
   - class: File
     path: ../../../img/batman_classic.png
-    nameroot: batman_classic
   - class: File
     path: ../../../img/kojima_chicken.png
-    nameroot: kojima_chicken
 
