@@ -7,29 +7,3 @@ outlines:
     path: ../../../img/kojima_chicken.png
     nameroot: kojima_chicken
 
-# Not user-modifiable, script locations needs to be injected
-gradients_gen:
-  class: File
-  path: ../tools/gradients_gen.sh
-gradient_emblem:
-  class: File
-  path: ../tools/gradient_emblem.sh
-highlight_emblem:
-  class: File
-  path: ../tools/highlight_emblem.sh
-highlight_mask:
-  class: File
-  path: ../tools/highlight_mask.sh
-border_emblem:
-  class: File
-  path: ../tools/border_emblem.sh
-texture_default:
-  class: File
-  path: ../tools/texture_default.sh
-texture_map:
-  class: File
-  path: ../tools/texture_map.sh
-texture_small:
-  class: File
-  path: ../tools/texture_small.sh
-
