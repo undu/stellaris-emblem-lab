@@ -6,6 +6,9 @@ inputs:
     type: File
     inputBinding:
       position: 1
+    default:
+      class: File
+      location: gradients_gen.sh
 outputs:
   fill_gradient:
     type: File

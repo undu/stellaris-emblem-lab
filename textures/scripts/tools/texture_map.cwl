@@ -6,6 +6,9 @@ inputs:
     type: File
     inputBinding:
       position: 1
+    default:
+      class: File
+      location: texture_map.sh
   outline:
     type: File
     inputBinding:

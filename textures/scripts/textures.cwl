@@ -4,34 +4,19 @@ class: Workflow
 requirements:
   - class: ScatterFeatureRequirement
   - class: SubworkflowFeatureRequirement
+  - class: InlineJavascriptRequirement
 
 inputs:
   outlines: File[]
-  # files for shell scripts used:
-  gradients_gen: File
-  gradient_emblem: File
-  highlight_mask: File
-  highlight_emblem: File
-  border_emblem: File
-  texture_map: File
-  texture_default: File
-  texture_small: File
 outputs:
   texture_map:
-    type: File[]
-    outputSource: textures/texture_map
-  texture_default:
-    type: File[]
-    outputSource: textures/texture_map
-  texture_small:
-    type: File[]
-    outputSource: textures/texture_small
+    type: Directory[]
+    outputSource: organize/folders
 
 steps:
   gradients:
     run: tools/gradients_gen.cwl
-    in:
-      command: gradients_gen
+    in: []
     out: [fill_gradient, highlight_gradient]
 
   textures:
@@ -41,13 +26,39 @@ steps:
       outline: outlines
       fill_gradient: gradients/fill_gradient
       highlight_gradient: gradients/highlight_gradient
-      # files for shell scripts used:
-      gradient_emblem: gradient_emblem
-      highlight_mask: highlight_mask
-      highlight_emblem: highlight_emblem
-      border_emblem: border_emblem
-      texture_map: texture_map
-      texture_default: texture_default
-      texture_small: texture_small
     out: [texture_default, texture_map, texture_small]
 
+  # Move textures in their respective folders
+  organize:
+    in:
+      default: textures/texture_default
+      map: textures/texture_map
+      small: textures/texture_small
+    out: [folders]
+    run:
+      class: ExpressionTool
+      id: "organize"
+      inputs:
+        map: File[]
+      outputs:
+        folders: Directory[]
+      expression: |
+        ${
+          var folders = [];
+          folders.push({
+            "class": "Directory",
+            "basename": "out",
+            "listing": inputs.default
+          });
+          folders.push({
+            "class": "Directory",
+            "basename": "out/map",
+            "listing": inputs.map
+          });
+          folders.push({
+            "class": "Directory",
+            "basename": "out/small",
+            "listing": inputs.small
+          });
+          return { "folders": folders };
+        }
