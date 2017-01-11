@@ -4,4 +4,6 @@ outlines:
     path: ../../../img/batman_classic.png
   - class: File
     path: ../../../img/kojima_chicken.png
-
+outlines_new:
+  class: Directory
+  path: ../../../img/
