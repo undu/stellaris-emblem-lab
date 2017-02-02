@@ -7,25 +7,25 @@ file="${fileExt%.*}"
 folder="$2"
 
 # create necessary folders
-for folder in 'textures/temp' "textures/dds/small" "textures/dds/map";  do
-  if [ ! -d "$folder" ]; then
-    mkdir -p "$folder"
+for folder in 'temp' 'dds/small' 'dds/map';  do
+  if [ ! -d "${2}/${folder}" ]; then
+    mkdir -p "${2}/${folder}"
   fi
 done
 
-#gradient fill
+# gradient fill
 magick convert $1 -quiet -alpha copy \
        "${2}/temp/gradient_fill.png" -compose atop -composite \
        "${2}/temp/${file}_fill.png"
 
-#highlights
+# highlights
 magick convert $1 -quiet -morphology HMT \
-       "6x6+0+5:0,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- 1,-,-,-,-,-; 3x3+2+0:0,-,1 -,-,- -,-,-" \
+       '6x6+0+5:0,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- -,-,-,-,-,- 1,-,-,-,-,-; 3x3+2+0:0,-,1 -,-,- -,-,-' \
        -alpha copy \
-       $2/temp/gradient_highlight.png -compose atop -composite \
+       "${2}/temp/gradient_highlight.png" -compose atop -composite \
        "${2}/temp/${file}_highlights.png"
 
-magick convert "$2/temp/${file}_fill.png" \
+magick convert "${2}/temp/${file}_fill.png" \
        "${2}/temp/${file}_highlights.png" -compose screen -composite \
        -sigmoidal-contrast 2,50%% \
        -background white \
@@ -51,7 +51,7 @@ magick convert "${2}/temp/${file}.png" \
        -define dds:compression=none \
        "${2}/dds/small/${file}.dds"
 
-#map emblems
+# map emblems
 magick convert "$1" -alpha copy \
        -resize 256x256 \
        -define dds:compression=dxt5 -define dds:cluster-fit=true -define dds:weight-by-alpha=true \

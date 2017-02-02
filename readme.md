@@ -1,13 +1,12 @@
 # The Stellaris Emblem Lab
 
-These are the batch scripts I use for generating emblems for [Stellaris](http://store.steampowered.com/app/281990).
+These are the scripts I use for generating emblems for [Stellaris](http://store.steampowered.com/app/281990).
 
 ## Prerequisities
 
-The scripts are written in batch, therefore they need Windows to be run.
+The scripts are written in shell.
 
-The scripts make an extensive use of ImageMagick 7, which can be found [here](http://imagemagick.org/script/binary-releases.php#windows).
-When installing imagemagick, make sure to tick the option `Add application directory to your system path`.
+The scripts make an extensive use of ImageMagick 7, which can be found [here](http://imagemagick.org/script/binary-releases.php).
 
 ## Usage
 
