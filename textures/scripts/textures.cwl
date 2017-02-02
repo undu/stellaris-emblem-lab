@@ -5,11 +5,9 @@ requirements:
   - class: ScatterFeatureRequirement
   - class: SubworkflowFeatureRequirement
   - class: InlineJavascriptRequirement
-  - class: StepInputExpressionRequirement
 
 inputs:
-  outlines: File[]
-  outlines_new: Directory
+  outlines: Directory
 
 outputs:
   texture_map:
@@ -22,13 +20,24 @@ steps:
     in: []
     out: [fill_gradient, highlight_gradient]
 
+  extractListing:
+    in:
+      folder: outlines
+    out: [outlines]
+    run:
+      class: ExpressionTool
+      inputs:
+        folder: Directory
+      outputs:
+        outlines: File[]
+      expression: |
+        $({ "outlines": inputs.folder.listing })
+
   textures:
     run: texture_emblem.cwl
-    scatter: outlines
+    scatter: outline
     in:
-      outlines_dir: outlines_new
-      outlines:
-        valueFrom: $(inputs.outlines_dir.listing)
+      outline: extractListing/outlines
       fill_gradient: gradients/fill_gradient
       highlight_gradient: gradients/highlight_gradient
     out: [texture_default, texture_map, texture_small]

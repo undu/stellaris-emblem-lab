@@ -1,9 +1,7 @@
 cwlVersion: v1.0
-outlines:
-  - class: File
-    path: ../../../img/batman_classic.png
-  - class: File
-    path: ../../../img/kojima_chicken.png
 outlines_new:
+  class: Directory
+  path: ../../../img/
+outlines:
   class: Directory
   path: ../../../img/
