@@ -34,7 +34,7 @@ steps:
         $({ "outlines": inputs.folder.listing })
 
   textures:
-    run: texture_emblem.cwl
+    run: emblem_textures.cwl
     scatter: outline
     in:
       outline: extractListing/outlines
