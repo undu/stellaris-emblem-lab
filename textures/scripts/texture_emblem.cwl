@@ -40,7 +40,7 @@ steps:
     in:
       gradient_emblem: gradient/gradient_emblem
       gradient_mask: highlight_mask/highlight_mask
-    out: [gradient_emblem]
+    out: [highlight_emblem]
 
   border:
     run: tools/border_emblem.cwl
@@ -62,7 +62,7 @@ steps:
     in:
       # needed to transform to generate file_name
       outline: outline
-      highlight: highlight/gradient_emblem
+      highlight: highlight/highlight_emblem
       file_name:
         valueFrom: $(inputs.outline.nameroot)
     out: [texture]
@@ -72,7 +72,7 @@ steps:
     in:
       # needed to transform to generate file_name
       outline: outline
-      highlight: highlight/gradient_emblem
+      highlight: highlight/highlight_emblem
       border: border/border_emblem
       file_name:
         valueFrom: $(inputs.outline.nameroot)

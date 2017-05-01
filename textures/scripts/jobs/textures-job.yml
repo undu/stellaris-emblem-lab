@@ -1,7 +1,3 @@
-cwlVersion: v1.0
-outlines_new:
-  class: Directory
-  path: ../../../img/
 outlines:
   class: Directory
   path: ../../../img/

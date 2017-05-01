@@ -18,7 +18,7 @@ inputs:
     inputBinding:
       position: 3
 outputs:
-  gradient_emblem:
+  highlight_emblem:
     type: File
     outputBinding:
       glob: highlight_emblem.png
