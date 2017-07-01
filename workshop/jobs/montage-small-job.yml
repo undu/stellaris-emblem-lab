@@ -1,0 +1,9 @@
+images:
+  - class: File
+    path: ../../img/pelican.png
+  - class: File
+    path: ../../img/git.png
+gridsize: '1x2'
+imagegeometry: '24x24+1+1'
+backgroundcolour: white
+montagename: montage_small.png

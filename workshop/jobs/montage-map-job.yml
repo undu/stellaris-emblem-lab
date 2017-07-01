@@ -1,0 +1,9 @@
+images:
+  - class: File
+    path: ../../img/pelican.png
+  - class: File
+    path: ../../img/git.png
+gridsize: '1x2'
+imagegeometry: '512x512+1+1'
+backgroundcolour: black
+montagename: montage_map.png
