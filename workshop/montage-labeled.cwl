@@ -51,7 +51,7 @@ inputs:
       prefix: -pointsize
   montagename:
     type: string
-    default: montage.png
+    # default: montage.png
     inputBinding:
       position: 8
 outputs:

@@ -114,7 +114,7 @@ steps:
           });
           folders.push({
             'class': 'Directory',
-            'basename': 'out/workshop'
+            'basename': 'out/workshop',
             'listing': [inputs.montage_default, inputs.montage_map, inputs.montage_small]
           });
           return { 'folders': folders };

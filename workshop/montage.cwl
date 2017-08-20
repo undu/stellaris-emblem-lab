@@ -26,7 +26,7 @@ inputs:
       prefix: -background
   montagename:
     type: string
-    default: montage.png
+    # default: montage.png
     inputBinding:
       position: 5
 outputs:
