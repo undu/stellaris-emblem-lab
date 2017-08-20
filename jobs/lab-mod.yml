@@ -2,3 +2,4 @@ outlines:
   class: Directory
   path: ../img/
 mod_name: 'lab_f'
+gridsize: '5x'

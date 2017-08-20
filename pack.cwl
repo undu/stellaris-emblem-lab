@@ -9,6 +9,7 @@ requirements:
 inputs:
   outlines: Directory
   mod_name: string
+  gridsize: string
 
 outputs:
   texture_map:
@@ -48,28 +49,31 @@ steps:
     run: workshop/montage-labeled.cwl
     in:
       montagename:
-        - default: 'montage_default.png'
-      default: textures/texture_default
+        default: 'montage_default.png'
+      images: textures/texture_default
+      gridsize: gridsize
       imagegeometry:
-        - default: '128x128+1+1'
+        default: '128x128+1+1'
     out: [montage]
   montage_map:
     run: workshop/montage.cwl
     in:
       montagename:
-        - default: 'montage_map.png'
+        default: 'montage_map.png'
       images: textures/texture_map
+      gridsize: gridsize
       imagegeometry:
-        - default: '256x256+1+1'
+        default: '256x256+1+1'
     out: [montage]
   montage_small:
     run: workshop/montage.cwl
     in:
       montagename:
-        - default: 'montage_small.png'
+        default: 'montage_small.png'
       images: textures/texture_small
+      gridsize: gridsize
       imagegeometry:
-        - default: '24x24+1+1'
+        default: '24x24+1+1'
     out: [montage]
 
   # Pack textures and everything else into the right folders
