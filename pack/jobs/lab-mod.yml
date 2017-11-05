@@ -1,0 +1,8 @@
+outlines:
+  class: Directory
+  path: ../../img/
+localisation:
+  class: Directory
+  path: ../../localisation
+mod_name: 'lab_f'
+gridsize: '5x'

@@ -18,7 +18,7 @@ outputs:
 
 steps:
   gradients:
-    run: textures/tools/gradients_gen.cwl
+    run: ../textures/tools/gradients_gen.cwl
     in: []
     out: [fill_gradient, highlight_gradient]
 
@@ -36,7 +36,7 @@ steps:
         $({ 'outlines': inputs.folder.listing })
 
   textures:
-    run: textures/emblem_textures.cwl
+    run: ../textures/emblem_textures.cwl
     scatter: outline
     in:
       outline: extractListing/outlines
@@ -46,7 +46,7 @@ steps:
 
   # generate preview for all the emblems
   montage_default:
-    run: workshop/montage-labeled.cwl
+    run: ../workshop/montage-labeled.cwl
     in:
       montagename:
         default: 'montage_default.png'
@@ -56,7 +56,7 @@ steps:
         default: '128x128+1+1'
     out: [montage]
   montage_map:
-    run: workshop/montage.cwl
+    run: ../workshop/montage.cwl
     in:
       montagename:
         default: 'montage_map.png'
@@ -66,7 +66,7 @@ steps:
         default: '256x256+1+1'
     out: [montage]
   montage_small:
-    run: workshop/montage.cwl
+    run: ../workshop/montage.cwl
     in:
       montagename:
         default: 'montage_small.png'
