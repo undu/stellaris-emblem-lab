@@ -1,8 +1,11 @@
 outlines:
   class: Directory
-  path: ../../img/
+  path: ../../resources/images/
 localisation:
   class: Directory
-  path: ../../localisation
+  path: ../../resources/localisation
+montage_font:
+  class: File
+  path: ../../resources/fonts/YanoneKaffeesatz-Bold.ttf
 mod_name: 'lab_f'
 gridsize: '5x'

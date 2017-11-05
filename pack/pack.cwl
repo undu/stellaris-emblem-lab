@@ -10,6 +10,7 @@ inputs:
   outlines: Directory
   mod_name: string
   gridsize: string
+  montage_font: File
   localisation: Directory
 
 outputs:
@@ -53,6 +54,7 @@ steps:
         default: 'montage_default.png'
       images: textures/texture_default
       gridsize: gridsize
+      font: montage_font
       imagegeometry:
         default: '128x128+1+1'
     out: [montage]

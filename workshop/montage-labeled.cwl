@@ -38,8 +38,7 @@ inputs:
       position: 5
       prefix: -fill
   font:
-    type: string
-    default: YanoneKaffeesatz-Bold
+    type: File
     inputBinding:
       position: 6
       prefix: -font
