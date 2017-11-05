@@ -10,6 +10,7 @@ inputs:
   outlines: Directory
   mod_name: string
   gridsize: string
+  localisation: Directory
 
 outputs:
   texture_map:
@@ -86,6 +87,7 @@ steps:
       montage_default: montage_default/montage
       montage_map: montage_map/montage
       montage_small: montage_small/montage
+      localisation: localisation
     out: [folders]
     run:
       class: ExpressionTool
@@ -97,6 +99,7 @@ steps:
       expression: |
         ${
           var folders = [];
+          inputs.localisation.listing.forEach(f => f.basename = inputs.mod_name + '_l_' + f.basename)
           folders.push({
             'class': 'Directory',
             'basename': 'out/' + inputs.mod_name + '/flags/' + inputs.mod_name,
@@ -116,6 +119,11 @@ steps:
             'class': 'Directory',
             'basename': 'out/workshop',
             'listing': [inputs.montage_default, inputs.montage_map, inputs.montage_small]
+          });
+          folders.push({
+            'class': 'Directory',
+            'basename': 'out/' + inputs.mod_name + '/localisation/',
+            'listing': inputs.localisation.listing
           });
           return { 'folders': folders };
         }
