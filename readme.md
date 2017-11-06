@@ -23,7 +23,7 @@ The result images are stored in `preprocess\final`.
 
 Builds a flag mod from images, including file structure and localisations
 usage example:
-`cwltool pack/pack.cwl pack/jobs/lab-mod.yml`
+`cwltool --cachedir=/tmp/cache pack/pack.cwl pack/jobs/lab-mod.yml`
 
 
 ## License
