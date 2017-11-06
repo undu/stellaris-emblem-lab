@@ -12,8 +12,8 @@ inputs:
       position: 1
       prefix: -tile
   label:
-    # %t for filename or '' for none
-    type: string
+    # %t for filename
+    type: string?
     inputBinding:
       position: 2
       prefix: -label

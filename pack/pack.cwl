@@ -68,8 +68,6 @@ steps:
       montagename:
         default: 'montage_map.png'
       images: textures/texture_map
-      label:
-        default: ''
       gridsize: gridsize
       font: montage_font
       fontsize:
@@ -83,8 +81,6 @@ steps:
       montagename:
         default: 'montage_small.png'
       images: textures/texture_small
-      label:
-        default: ''
       gridsize: gridsize
       font: montage_font
       fontsize:
