@@ -1,0 +1,7 @@
+image: commonworkflowlanguage/cwltool:latest
+services:
+  - docker:dind
+
+build:
+  script:
+    - cwltool --cachedir=/tmp/cache pack/pack.cwl pack/jobs/lab-mod.yml
