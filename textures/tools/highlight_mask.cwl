@@ -1,6 +1,9 @@
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: sh
+hints:
+  - class: DockerRequirement
+    dockerPull: undu/imagemagick
 inputs:
   command:
     type: File

@@ -48,13 +48,17 @@ steps:
 
   # generate preview for all the emblems
   montage_default:
-    run: ../workshop/montage-labeled.cwl
+    run: ../workshop/montage.cwl
     in:
       montagename:
         default: 'montage_default.png'
       images: textures/texture_default
+      label:
+        default: '%t'
       gridsize: gridsize
       font: montage_font
+      fontsize:
+        default: '16'
       imagegeometry:
         default: '128x128+1+1'
     out: [montage]
@@ -64,7 +68,12 @@ steps:
       montagename:
         default: 'montage_map.png'
       images: textures/texture_map
+      label:
+        default: ''
       gridsize: gridsize
+      font: montage_font
+      fontsize:
+        default: '0'
       imagegeometry:
         default: '256x256+1+1'
     out: [montage]
@@ -74,7 +83,12 @@ steps:
       montagename:
         default: 'montage_small.png'
       images: textures/texture_small
+      label:
+        default: ''
       gridsize: gridsize
+      font: montage_font
+      fontsize:
+        default: '0'
       imagegeometry:
         default: '24x24+1+1'
     out: [montage]
