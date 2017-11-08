@@ -11,6 +11,7 @@ inputs:
   mod_name: string
   gridsize: string
   montage_font: File
+  workshop_description: File
   localisation: Directory
 
 outputs:
@@ -100,6 +101,7 @@ steps:
       montage_map: montage_map/montage
       montage_small: montage_small/montage
       localisation: localisation
+      description: workshop_description
     out: [folders]
     run:
       class: ExpressionTool
@@ -130,7 +132,12 @@ steps:
           folders.push({
             'class': 'Directory',
             'basename': 'out/workshop',
-            'listing': [inputs.montage_default, inputs.montage_map, inputs.montage_small]
+            'listing': [
+              inputs.montage_default,
+              inputs.montage_map,
+              inputs.montage_small,
+              inputs.description
+            ]
           });
           folders.push({
             'class': 'Directory',

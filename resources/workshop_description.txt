@@ -1,0 +1,11 @@
+<Mod Description>
+
+[h1]Compatibility[/h1]
+[list]
+[*] Compatible with Ironman mode and achievements.
+[*] Compatible with 1.*
+[/list]
+
+<Promotion for other mods>
+
+<Copyright info>

@@ -7,5 +7,8 @@ localisation:
 montage_font:
   class: File
   path: ../../resources/fonts/YanoneKaffeesatz-Bold.ttf
+workshop_description:
+  class: File
+  path: ../../resources/workshop_description.txt
 mod_name: 'lab_f'
 gridsize: '5x'
