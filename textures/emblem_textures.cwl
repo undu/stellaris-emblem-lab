@@ -61,20 +61,21 @@ steps:
     run: tools/texture_default.cwl
     in:
       # needed to transform to generate file_name
-      outline: outline
       highlight: highlight/highlight_emblem
       file_name:
-        valueFrom: $(inputs.outline.nameroot)
+        source: outline
+        valueFrom: $(self.nameroot)
+
     out: [texture]
 
   small:
     run: tools/texture_small.cwl
     in:
       # needed to transform to generate file_name
-      outline: outline
       highlight: highlight/highlight_emblem
       border: border/border_emblem
       file_name:
-        valueFrom: $(inputs.outline.nameroot)
+        source: outline
+        valueFrom: $(self.nameroot)
     out: [texture]
 

@@ -105,13 +105,20 @@ steps:
       class: ExpressionTool
       id: 'organize'
       inputs:
+        mod_name: string
+        default: File[]
         map: File[]
+        small: File[]
+        montage_default: File
+        montage_map: File
+        montage_small: File
+        localisation: Directory
       outputs:
         folders: Directory[]
       expression: |
         ${
           var folders = [];
-          inputs.localisation.listing.forEach(f => f.basename = inputs.mod_name + '_l_' + f.basename)
+          inputs.localisation.listing.forEach(function(f) { f.basename = inputs.mod_name + '_l_' + f.basename });
           folders.push({
             'class': 'Directory',
             'basename': 'out/' + inputs.mod_name + '/flags/' + inputs.mod_name,
